@@ -1,17 +1,21 @@
 body {
   background-color: #000125;
+  font-family: Helvetica, Verdana, sans-serif;
 }
 
 h1 {
   color: white;
+  font-family: Helvetica, Verdana, sans-serif;
 }
 
 h2 {
   color: white;
+  font-family: Helvetica, Verdana, sans-serif;
 }
 
 p {
   color: white;
+  font-family: Helvetica, Verdana, sans-serif;
 }
 
 a:link {
