@@ -1,0 +1,38 @@
+body {
+  background-color: #000125;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+a:link {
+  color: aqua;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}            
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}            
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
