@@ -40,3 +40,58 @@ a:active {
   color: yellow;
   background-color: transparent;
   text-decoration: underline;
+}
+
+fieldset {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+/* Etykiety */
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Pola input */
+input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 3px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Przycisk */
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Hover na przycisku */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Sekcja wyniku */
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px dashed #ccc;
+}
+
