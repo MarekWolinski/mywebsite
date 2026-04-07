@@ -13,7 +13,66 @@
             As a result, I wrote a simple calculator to help me with this task. 
         </p>
         <p>
-            <!--Put here a calculator script-->
+            <form>
+
+              <fieldset>
+                <legend>Component data (on installation)</legend>
+                
+                <label>TSN:
+                  <input type="number" id="compTSN" step="0.1">
+                </label>
+            
+                <label>TSO:
+                  <input type="number" id="compTSO" step="0.1">
+                </label>
+            
+                <label>CSN:
+                  <input type="number" id="compCSN">
+                </label>
+            
+                <label>CSO:
+                  <input type="number" id="compCSO">
+                </label>
+              </fieldset>
+            
+              <fieldset>
+                <legend>Aircraft data on installation of the component</legend>
+            
+                <label>TSN (A/C):
+                  <input type="number" id="aircraftTSN_install" step="0.1">
+                </label>
+            
+                <label>CSN (A/C):
+                  <input type="number" id="aircraftCSN_install">
+                </label>
+            
+                <label>Date of installation:
+                  <input type="date" id="installDate">
+                </label>
+              </fieldset>
+            
+              <fieldset>
+                <legend>Aircraft data on removal of the component</legend>
+            
+                <label>TSN (A/C):
+                  <input type="number" id="aircraftTSN_remove" step="0.1">
+                </label>
+            
+                <label>CSN (A/C):
+                  <input type="number" id="aircraftCSN_remove">
+                </label>
+            
+                <label>Date of removal:
+                  <input type="date" id="removeDate">
+                </label>
+              </fieldset>
+            
+              <button type="button">Go!</button>
+            
+            </form>
+            
+            <h3>Result</h3>
+            <div id="result"></div>
         </p>
         <p>
             <a href="index.html">Back</a><br>
