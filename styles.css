@@ -43,6 +43,7 @@ a:active {
 }
 
 fieldset {
+  width: 25%;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
@@ -67,7 +68,7 @@ label {
 
 /* Pola input */
 input {
-  width: 25%;
+  width: 10%;
   padding: 3px;
   margin-top: 3px;
   box-sizing: border-box;
