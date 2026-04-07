@@ -95,7 +95,7 @@ button:hover {
 /* Sekcja wyniku */
 #result {
   width: 400px;
-  color: white;
+  color: yellow;
   font-family: Helvetica, Verdana, sans-serif;
   margin-top: 20px;
   font-weight: bold;
