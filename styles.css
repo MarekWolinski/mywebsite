@@ -43,7 +43,7 @@ a:active {
 }
 
 fieldset {
-  width: 25%;
+  display:inline;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
