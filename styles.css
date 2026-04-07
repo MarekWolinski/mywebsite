@@ -43,7 +43,7 @@ a:active {
 }
 
 fieldset {
-  width: 500px;
+  width: 400px;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
@@ -68,7 +68,7 @@ label {
 
 /* Pola input */
 input {
-  width: 100%;
+  width: 40%;
   padding: 3px;
   margin-top: 3px;
   box-sizing: border-box;
@@ -94,6 +94,7 @@ button:hover {
 
 /* Sekcja wyniku */
 #result {
+  width: 400px;
   color: white;
   font-family: Helvetica, Verdana, sans-serif;
   margin-top: 20px;
