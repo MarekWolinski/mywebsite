@@ -14,12 +14,12 @@
                 
                   <label>TSN:
                       <input type="number" id="compTSNhrs" step="1" min="0">:
-                      <input type="number" id="compTSNmin" step="1" min="0" max="60">
+                      <input type="number" id="compTSNmin" step="1" min="0" max="59">
                   </label>
             
                   <label>TSO:
                       <input type="number" id="compTSOhrs" step="1" min="0">:
-                  <input type="number" id="compTSOmin" step="1" min="0" max="60">
+                  <input type="number" id="compTSOmin" step="1" min="0" max="59">
                   </label>
                         
                   <label>CSN:
@@ -40,7 +40,7 @@
                 
                     <label>TSN:
                         <input type="number" id="aircraftTSNhrs_install" step="1" min="0">:
-                        <input type="number" id="aircraftTSNmin_install" step="1" min="0" max="60">
+                        <input type="number" id="aircraftTSNmin_install" step="1" min="0" max="59">
                     </label>
             
                     <label>CSN:
@@ -58,7 +58,7 @@
 
                     <label>TSN:
                         <input type="number" id="aircraftTSNhrs_remove" step="1" min="0">:
-                        <input type="number" id="aircraftTSNmin_remove" step="1" min="0" max="60">
+                        <input type="number" id="aircraftTSNmin_remove" step="1" min="0" max="59">
                     </label>
 
                     <label>CSN:
@@ -70,7 +70,98 @@
               <button type="button">Go!</button>
             
             </form>
+
+            <script>
+            document.querySelector("button").addEventListener("click", calculate);
             
+            // HH + MM → minuty
+            function toMinutes(h, m) {
+                return (h * 60) + m;
+            }
+            
+            // minuty → HH:MM
+            function toHHMM(totalMinutes) {
+                let h = Math.floor(totalMinutes / 60);
+                let m = totalMinutes % 60;
+                return {
+                    h: h,
+                    m: m.toString().padStart(2, '0')
+                };
+            }
+            
+            function calculate() {
+            
+                // --- COMPONENT ---
+                let compTSNhrs = parseInt(document.getElementById("compTSNhrs").value) || 0;
+                let compTSNmin = parseInt(document.getElementById("compTSNmin").value) || 0;
+            
+                let compTSOhrs = parseInt(document.getElementById("compTSOhrs").value) || 0;
+                let compTSOmin = parseInt(document.getElementById("compTSOmin").value) || 0;
+            
+                let compCSN = parseInt(document.getElementById("compCSN").value) || 0;
+                let compCSO = parseInt(document.getElementById("compCSO").value) || 0;
+            
+                // --- AIRCRAFT INSTALL ---
+                let tsnInstH = parseInt(document.getElementById("aircraftTSNhrs_install").value);
+                let tsnInstM = parseInt(document.getElementById("aircraftTSNmin_install").value);
+            
+                let csnInst = parseInt(document.getElementById("aircraftCSN_install").value);
+            
+                // --- AIRCRAFT REMOVE ---
+                let tsnRemH = parseInt(document.getElementById("aircraftTSNhrs_remove").value);
+                let tsnRemM = parseInt(document.getElementById("aircraftTSNmin_remove").value);
+            
+                let csnRem = parseInt(document.getElementById("aircraftCSN_remove").value);
+            
+                // --- WALIDACJA ---
+                if (
+                    isNaN(tsnInstH) || isNaN(tsnInstM) ||
+                    isNaN(tsnRemH) || isNaN(tsnRemM) ||
+                    isNaN(csnInst) || isNaN(csnRem)
+                ) {
+                    document.getElementById("result").innerHTML = "Uzupełnij dane statku.";
+                    return;
+                }
+            
+                // Zamiana na minuty
+                let tsnInstallMin = toMinutes(tsnInstH, tsnInstM);
+                let tsnRemoveMin = toMinutes(tsnRemH, tsnRemM);
+            
+                if (tsnRemoveMin < tsnInstallMin || csnRem < csnInst) {
+                    document.getElementById("result").innerHTML = "Błąd: dane removal < installation.";
+                    return;
+                }
+            
+                // --- DELTA ---
+                let deltaTSN = tsnRemoveMin - tsnInstallMin;
+                let deltaCSN = csnRem - csnInst;
+            
+                // --- COMPONENT → MINUTY ---
+                let compTSN_total = toMinutes(compTSNhrs, compTSNmin);
+                let compTSO_total = toMinutes(compTSOhrs, compTSOmin);
+            
+                // --- OBLICZENIA ---
+                let newTSN = compTSN_total + deltaTSN;
+                let newTSO = compTSO_total + deltaTSN;
+            
+                let newCSN = compCSN + deltaCSN;
+                let newCSO = compCSO + deltaCSN;
+            
+                // --- KONWERSJA ---
+                let tsn = toHHMM(newTSN);
+                let tso = toHHMM(newTSO);
+            
+                // --- WYNIK ---
+                document.getElementById("result").innerHTML = `
+                    <b>Dane komponentu:</b><br><br>
+                    TSN: ${tsn.h}:${tso.m ? tsn.m : "00"} FH<br>
+                    TSO: ${tso.h}:${tso.m} FH<br>
+                    CSN: ${newCSN}<br>
+                    CSO: ${newCSO}
+                `;
+            }
+            </script>
+        
             <h2>Result</h2>
             <div id="result"></div>
         </p>
