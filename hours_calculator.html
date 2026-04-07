@@ -10,56 +10,62 @@
             <form>
 
               <fieldset>
-                <legend>Component data (on installation)</legend>
+                  <legend>Component data (on installation)</legend>
                 
-                <label>TSN:
-                  <input type="number" id="compTSN" step="0.1">
-                </label>
+                  <label>TSN:
+                      <input type="number" id="compTSNhrs" step="1" min="0">:
+                      <input type="number" id="compTSNmin" step="1" min="0" max="60">
+                  </label>
             
-                <label>TSO:
-                  <input type="number" id="compTSO" step="0.1">
-                </label>
+                  <label>TSO:
+                      <input type="number" id="compTSOhrs" step="1" min="0">:
+                  <input type="number" id="compTSOmin" step="1" min="0" max="60">
+                  </label>
+                        
+                  <label>CSN:
+                      <input type="number" id="compCSN">
+                  </label>
             
-                <label>CSN:
-                  <input type="number" id="compCSN">
-                </label>
-            
-                <label>CSO:
-                  <input type="number" id="compCSO">
-                </label>
+                  <label>CSO:
+                      <input type="number" id="compCSO">
+                  </label>
               </fieldset>
             
-              <fieldset>
-                <legend>Aircraft data on installation of the component</legend>
+                <fieldset>
+                  <legend>Aircraft data (on installation)</legend>
+                            
+                    <label>Date:
+                        <input type="date" id="installDate">
+                    </label>
+                
+                    <label>TSN:
+                        <input type="number" id="aircraftTSNhrs_install" step="1" min="0">:
+                        <input type="number" id="aircraftTSNmin_install" step="1" min="0" max="60">
+                    </label>
             
-                <label>TSN (A/C):
-                  <input type="number" id="aircraftTSN_install" step="0.1">
-                </label>
+                    <label>CSN:
+                        <input type="number" id="aircraftCSN_install">
+                    </label>
             
-                <label>CSN (A/C):
-                  <input type="number" id="aircraftCSN_install">
-                </label>
+                </fieldset>
             
-                <label>Date of installation:
-                  <input type="date" id="installDate">
-                </label>
-              </fieldset>
+                <fieldset>
+                    <legend>Aircraft data (on removal)</legend>
+                    
+                    <label>Date:
+                        <input type="date" id="removeDate">
+                    </label>
+
+                    <label>TSN:
+                        <input type="number" id="aircraftTSNhrs_remove" step="1" min="0">:
+                        <input type="number" id="aircraftTSNmin_remove" step="1" min="0" max="60">
+                    </label>
+
+                    <label>CSN:
+                        <input type="number" id="aircraftCSN_remove">
+                    </label>
             
-              <fieldset>
-                <legend>Aircraft data on removal of the component</legend>
-            
-                <label>TSN (A/C):
-                  <input type="number" id="aircraftTSN_remove" step="0.1">
-                </label>
-            
-                <label>CSN (A/C):
-                  <input type="number" id="aircraftCSN_remove">
-                </label>
-            
-                <label>Date of removal:
-                  <input type="date" id="removeDate">
-                </label>
-              </fieldset>
+                </fieldset>
             
               <button type="button">Go!</button>
             
