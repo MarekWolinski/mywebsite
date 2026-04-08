@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  color: white;
+  color: purple;
   font-family: Helvetica, Verdana, sans-serif;
 }
 
@@ -43,7 +43,7 @@ a:active {
 }
 
 fieldset {
-  width: 400px;
+  width: 500px;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
@@ -94,7 +94,7 @@ button:hover {
 
 /* Sekcja wyniku */
 #result {
-  width: 400px;
+  width: 500px;
   color: yellow;
   font-family: Helvetica, Verdana, sans-serif;
   margin-top: 20px;
